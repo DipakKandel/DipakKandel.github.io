@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Contact</title>
+		<style>
+		a:link{color:white;}
+		a:visited{color:white;}
+		a:hover{color:white;}
+		a:active{color:white;}
+	</style>
+	</head>
+	<body >
+		<script>
+		function submitpop()
+		{
+			if (document.forms["contactform"]["fullname"].value==""){
+				alert("Sorry ! Your Name can not be empty");
+				//var element = document.getElementById('msg');
+				//element.innerHTML = "eRROR";
+				
+			}
+			else if (document.forms["contactform"]["mail"].value==""){
+				return alert("Sorry ! Fill the mail address first");
+			}
+			else{
+				return alert("Thank you !! Your message has been submitted to the admin");
+			}
+		}
+		function newsletter()
+		{	if(document.forms["subscribeform"]["mail"].value==""){
+				alert("Sorry enter email first");
+			}
+			else{
+				alert("Thank you so much for subscribing to our newsletter");
+			}
+		}
+
+		</script>
+		<script type="text/javascript" src="../javaScript/datetime.js"></script>
+		<link href="../css/index_style.css" rel="stylesheet">
+		<header style="background-color: black; position: fixed; top: 0;  width: 98.3%;">
+			<a href="../index.html" style="display: inline-block;"><img src="../Images/header1.jpg"></a>
+		
+			<table align = "right" style="background-color:black; display:inline-block;align-self: left; font-size: 16px; font-family:Arial Narrow; padding-right: 4%; padding-top: 1%;">
+			<tr>
+				<td><a href="../Index.html" style="text-decoration: none">HOME&nbsp;&nbsp;  </a></td>
+				<td><a href="Blog.html" style="text-decoration: none">BLOG&nbsp;&nbsp; </a></td>
+				<td><a href="Research.html" style="text-decoration: none">RESEARCH&nbsp;&nbsp; </a></td>
+				<td><a href="CV.html" style="text-decoration: none">RESUME&nbsp;&nbsp; </a></td>
+				<td><a href="Contact.html" style="text-decoration: none">CONTACT&nbsp;&nbsp; </a></td>
+			</tr>
+		</table>
+
+		
+		</header>
+
+		<div align="center" style="background-image: url('../Images/header contact.jpg'); width: 100%; height: 280px; font-family: Arial Narrow; letter-spacing: 1.5px;" 	><br><br><br>
+			<p style="font-size: 30px;  font-weight: 600;">CONTACT</p>
+			Home >> Contact
+
+		</div>
+			
+		<div style="padding-left: 15; margin-left: 8%; letter-spacing: 1PX;">
+			<p style="width:50%; text-align:justify; font-size: 16px;">If your are interested to know more about me or even just want to give some feedback, do get in touch, I'm always wiliing to interact with the peoples visiting this site. I appologize in advance if I delay the responses. You can be assured that I read each and every one of my emails. <br>
+			</p>
+			<p>So do get in touch, mail me or simply fill in the contact form below.
+			</p>
+			<br>
+			<hr width="100%"><br>
+			<form name="contactform" onsubmit="" style="display: inline-block;">
+				YOUR NAME* <br> 
+				<input type="text" name="fullname" id="fullname" style= "width:350px; height:20px;border-width:2;background-color:white;" ><span id="msg">		</span><br><br>
+				YOUR EMAIL* <br>
+				<input type="text" name="mail"style="width:350px; height:20px;background-color:white;"><br><br>
+				SUBJECT<br>
+				<input type="text" name="subject"style="width:350px;height:20px;background-color:white;"><br><br>
+				YOUR MESSAGE*<br>
+	 			<textarea rows = "8" cols = "53" name = "mainmessage" style="background-color:white;">
+     			</textarea><br>
+				<br>
+				<br>
+				<div>
+					<button style="background-color:black;height:45px;width:180px; font-size: 18px;color:white;font-weight:650;" onclick="submitpop()">SEND</button><br><br><br>
+					
+				</div>
+			</form>
+			<a href="https://www.google.com/maps/dir//27.7316192,85.3197652/@27.7322983,85.3097633,15z/data=!4m2!4m1!3e0" target="_blank"><img src="../Images/map.jpg" align="right" style="max-width: 75%;  height: 300px; margin-right: 2%; border: 4px solid red;"></a>
+			<hr width="100%">
+		</div>
+		<br><br><br>
+
+
+
+
+
+		<footer>
+			<div  align ="center" style="background-color: black; height: 150px; ">
+				<p style="color: white;padding-top: 10px; text-align: center; font-family: Arial Narrow; font-size: 20px;">STAY &nbsp;&nbsp; UPDATED &nbsp;&nbsp; WITH &nbsp;&nbsp; OUR &nbsp;&nbsp;  NEWSLETTER</p>
+				<form id="subscribeform">
+				<input type="text" name="mail" id="mail" placeholder="  Enter Email Address"style="width:500px; height:30px;background-color:white; margin:auto;display: inline-block; ">
+				
+				<button style="background-color:#d9dde2; height:35.5px;width:100px; font-size: 16px; color:black;" onclick="newsletter()">Subscribe</button>
+			</form>
+			</div>
+			<div align="center">
+				<p style="font-size:42px; font-family: cursive; text-align: center; ">Dipak Kandel</p>
+				<a href="https://www.facebook.com/CallmeDipak" target="_blank" style="display: inline-block;"><img src="../Images/facebook logo.jpg"></a>
+				<a href="https://www.instagram.com/dipak_kandel01"   style="display: inline-block;"><img src="../Images/insta logo.jpg"></a>
+				<p style="font-weight: 450;font-family:Bahnschrift; font-size: 14px; font-style: normal;"> &#169; Copyright 2019, Dipak Kandel. All Rights Reserved.</p>
+				<p style="font-weight: 450;font-family:Bahnschrift; font-size: 13px; font-style: normal;"> Made with &#10084; in Nepal by A True Fan </p>
+			</div>
+			<div class="name" align="left"><p id="date"></p>
+	    	<!--call the function from external javascript file after importing above-->
+	    	<script type="text/javascript">
+	    		display_date();
+	    	</script>
+	    		
+	    	</div>
+		</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>
