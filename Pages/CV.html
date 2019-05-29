@@ -46,13 +46,52 @@
 
 			</div>
 			<br>
-			<div align="center">
-				<img src="../Images/Personal Images/a.jpg"  alt="dipak Kandel'photo" style="width: 19%; height: 250px;">
-				<img src="../Images/Personal Images/b.jpg"  alt="dipak Kandel'photo"  style="width: 19%; height: 250px;">
-				<img src="../Images/Personal Images/c.jpg"  alt="dipak Kandel'photo" style="width: 19%; height: 250px;" style="width: 18%; height: 250px;">
-				<img src="../Images/Personal Images/d.jpg"  alt="dipak Kandel'photo" style="width: 19%; height: 250px;">
-				<img src="../Images/Personal Images/e.jpg"  alt="dipak Kandel'photo" style="width: 19%; height: 250px;">
-			</div>
+			<div class="slider" align="center">
+		    		<div class="slideshow-box">
+
+			            <div class="slideItems fade">
+			                <img src="../Images/Personal Images/d.jpg" class="photo"style="width: 400px; height: 350px;">
+			            </div>
+			            
+			            <div class="slideItems fade">
+			                <img src="../Images/Personal Images/b.jpg" class="photo" style="width: 400px; height: 350px;">
+			            </div>
+			            
+			            <div class="slideItems fade">
+			                
+			                <img src="../Images/Personal Images/c.jpg" class="photo" style="width: 400px; height: 350px;">
+			            </div>
+			            <div class="slideItems fade">
+			                <img src="../Images/Personal Images/d.jpg" class="photo"style="width: 400px; height: 350px;">
+			            </div>
+			            <div class="slideItems fade">
+			                <img src="../Images/Personal Images/e.jpg" class="photo"style="width: 400px; height: 350px;">
+			            </div>
+				            
+
+				        <!--This javascript is used for sliding the content horizently .-->
+			        	<script type="text/javascript">
+						    var slideIndex = 0;
+						    slideShow();
+
+						    function slideShow() {
+						        var i;
+						        var slide = document.getElementsByClassName("slideItems");
+						        for (i = 0; i < slide.length; i++) {
+						            slide[i].style.display = "none";
+
+						        }
+						        slideIndex++;
+						        if (slideIndex > slide.length) {
+						            slideIndex = 1
+						        }
+						        slide[slideIndex - 1].style.display = "block";
+						        setTimeout(slideShow, 3000); // content changing time
+						    }
+
+			        	</script>
+
+			        </div>  
 
 
 
