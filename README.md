@@ -1,161 +1,252 @@
-# Dipak Kandel - Portfolio Website
+# Dipak Kandel - Portfolio Website (Django)
 
-A modern, responsive portfolio website showcasing Dipak Kandel's achievements, experience, and projects.
+A modern, responsive portfolio website built with Django that allows easy content management through an admin panel.
 
 ## 🚀 Features
 
-- **Modern Design**: Clean, professional design inspired by modern portfolio websites
+- **Django Backend**: Full-featured Django application with admin interface
+- **Content Management**: Easy to update portfolio content through Django admin
+- **Modern Design**: Clean, professional design with dark theme
 - **Responsive Layout**: Fully responsive design that works on all devices
-- **Smooth Animations**: CSS animations and JavaScript interactions for enhanced user experience
-- **Mobile-First**: Optimized for mobile devices with hamburger navigation
-- **Interactive Elements**: Hover effects, smooth scrolling, and dynamic content
-- **Contact Form**: Functional contact form with validation
-- **Performance Optimized**: Fast loading with optimized CSS and JavaScript
-
-## 🎨 Design Elements
-
-- **Hero Section**: Eye-catching introduction with gradient background
-- **About Section**: Personal information and key statistics
-- **Experience Section**: Skills and achievements displayed in cards
-- **Projects Section**: Showcase of work with image galleries
-- **Contact Section**: Contact form and information
-- **Footer**: Social links and additional navigation
+- **Dynamic Content**: All content is pulled from database models
+- **Contact Form**: Functional contact form with database storage
+- **Image Management**: Easy image uploads for projects and profile
 
 ## 🛠️ Technologies Used
 
-- **HTML5**: Semantic markup structure
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Interactive functionality and animations
-- **Font Awesome**: Icons for enhanced visual appeal
-- **Google Fonts**: Inter font family for modern typography
+- **Backend**: Django 5.2.5
+- **Database**: SQLite (can be easily changed to PostgreSQL/MySQL)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Styling**: Custom CSS with modern design
+- **Icons**: Font Awesome
+- **Fonts**: Inter (Google Fonts)
 
-## 📱 Responsive Breakpoints
+## 📁 Project Structure
+
+```
+dipakKandel.github.io/
+├── manage.py                 # Django management script
+├── requirements.txt          # Python dependencies
+├── portfolio/               # Main portfolio app
+│   ├── models.py           # Database models
+│   ├── views.py            # View functions
+│   ├── admin.py            # Admin interface
+│   └── urls.py             # URL patterns
+├── portfolio_project/       # Django project settings
+│   ├── settings.py         # Project configuration
+│   └── urls.py             # Main URL configuration
+├── templates/               # HTML templates
+│   └── portfolio/
+│       └── home.html       # Main portfolio page
+├── static/                  # Static files
+│   ├── css/
+│   │   └── style.css       # Main stylesheet
+│   ├── js/
+│   │   └── main.js         # JavaScript functionality
+│   └── images/             # Static images
+├── media/                   # User uploaded content
+│   ├── profile/            # Profile images
+│   └── projects/           # Project images
+└── venv/                   # Virtual environment
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Python 3.8+
+- pip
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd dipakKandel.github.io
+   ```
+
+2. **Create and activate virtual environment**
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run migrations**
+
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+5. **Create superuser**
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+6. **Run the development server**
+
+   ```bash
+   python manage.py runserver
+   ```
+
+7. **Access the website**
+   - Portfolio: http://127.0.0.1:8000/
+   - Admin: http://127.0.0.1:8000/admin/
+
+## 📊 Database Models
+
+### PersonalInfo
+
+- Name, title, description
+- Contact information (email, phone, location)
+- Social media links
+- Profile image
+
+### Skill
+
+- Skill name and category
+- Proficiency level (1-10)
+- Ordering for display
+
+### Experience
+
+- Job title, company, location
+- Start/end dates
+- Description and achievements
+- Technologies used
+
+### Project
+
+- Project title and description
+- Image and links (GitHub, live)
+- Associated technologies
+- Featured flag for homepage
+
+### Education
+
+- Degree and institution
+- Dates and location
+- GPA and description
+
+### Achievement
+
+- Achievement title and description
+- Year and organization
+- Certificate links
+
+### Contact
+
+- Contact form submissions
+- Read/unread status
+- Timestamp
+
+### SiteSettings
+
+- Configurable site content
+- Hero section text
+- Section titles and descriptions
+
+## 🎨 Customization
+
+### Adding Content
+
+1. Access Django admin at `/admin/`
+2. Use the intuitive interface to add/edit content
+3. All changes are immediately reflected on the website
+
+### Styling
+
+- Edit `static/css/style.css` for design changes
+- Modify `templates/portfolio/home.html` for layout changes
+
+### Adding New Sections
+
+1. Create new models in `portfolio/models.py`
+2. Add admin configuration in `portfolio/admin.py`
+3. Update views in `portfolio/views.py`
+4. Modify templates as needed
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env` file for production settings:
+
+```env
+DEBUG=False
+SECRET_KEY=your-secret-key-here
+DATABASE_URL=your-database-url
+EMAIL_HOST=your-email-host
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email
+EMAIL_HOST_PASSWORD=your-password
+```
+
+### Email Configuration
+
+Update email settings in `portfolio_project/settings.py`:
+
+```python
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'your-smtp-host'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email'
+EMAIL_HOST_PASSWORD = 'your-password'
+```
+
+## 📱 Responsive Design
 
 - **Desktop**: 1200px and above
 - **Tablet**: 768px - 1199px
 - **Mobile**: Below 768px
 
-## 🎯 Key Sections
+## 🚀 Deployment
 
-### Navigation
+### Production Checklist
 
-- Fixed navigation bar with smooth scrolling
-- Mobile hamburger menu
-- Logo and navigation links
+1. Set `DEBUG = False`
+2. Update `SECRET_KEY`
+3. Configure production database
+4. Set up static file serving
+5. Configure email backend
+6. Set `ALLOWED_HOSTS`
 
-### Hero Section
+### Recommended Hosting
 
-- Introduction with name and title
-- Call-to-action buttons
-- Profile image with hover effects
-- Scroll indicator animation
+- **Heroku**: Easy deployment with PostgreSQL
+- **DigitalOcean**: VPS with full control
+- **AWS**: Scalable cloud hosting
+- **Vercel**: Static hosting with Django API
 
-### About Section
+## 🤝 Contributing
 
-- Personal biography
-- Key statistics (Birth year, Courseworks, Public speeches)
-- Responsive grid layout
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-### Experience & Skills
+## 📞 Support
 
-- Achievement cards with icons
-- MOS Championship winner
-- Islington College leadership
-- Public speaking experience
-- Technology passion
+For questions or support:
 
-### Projects
+- Email: dipak.itsme@gmail.com
+- GitHub: [github.com/DipakKandel](https://github.com/DipakKandel)
 
-- Project showcase with images
-- Technology tags
-- Hover effects and animations
+## 📄 License
 
-### Contact
-
-- Contact form with validation
-- Contact information
-- Social media links
-
-## 🔧 Customization
-
-### Colors
-
-- Primary: #2563eb (Blue)
-- Secondary: #fbbf24 (Yellow)
-- Background: #f8fafc (Light Gray)
-- Text: #1f2937 (Dark Gray)
-
-### Fonts
-
-- Primary: Inter (Google Fonts)
-- Weights: 300, 400, 500, 600, 700
-
-## 📁 File Structure
-
-```
-dipakKandel.github.io/
-├── index.html          # Main HTML file
-├── CSS/
-│   └── style.css      # Main stylesheet
-├── JavaScript/
-│   └── main.js        # JavaScript functionality
-├── Images/            # Image assets
-└── README.md          # This file
-```
-
-## 🚀 Getting Started
-
-1. Clone or download the repository
-2. Open `index.html` in a web browser
-3. Customize content, images, and styling as needed
-4. Deploy to your preferred hosting service
-
-## 🎨 Customization Guide
-
-### Changing Colors
-
-Edit the CSS variables in `CSS/style.css`:
-
-```css
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #fbbf24;
-  --background-color: #f8fafc;
-  --text-color: #1f2937;
-}
-```
-
-### Adding New Sections
-
-1. Add HTML structure in `index.html`
-2. Style the section in `CSS/style.css`
-3. Add any JavaScript functionality in `JavaScript/main.js`
-
-### Updating Content
-
-- Edit text content directly in `index.html`
-- Replace images in the `Images/` folder
-- Update social media links in the footer
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers
-
-## 🔒 Performance Features
-
-- CSS animations optimized with `transform` and `opacity`
-- Lazy loading for images
-- Smooth scrolling with CSS
-- Minimal JavaScript for better performance
-
-## 📞 Contact
-
-For questions or customization requests, please use the contact form on the website.
+This project is licensed under the MIT License.
 
 ---
 
-**Made with ❤️ in Nepal** - Dipak Kandel
+**Made with ❤️ in Sydney, Australia** - Dipak Kandel

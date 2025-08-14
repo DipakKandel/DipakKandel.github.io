@@ -1,0 +1,385 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy - Cover Letter Writer Extension | Dipak Kandel</title>
+    <meta name="description" content="Privacy Policy for our AI-powered Cover Letter Writer Chrome Extension. Learn how we protect your data and ensure your privacy." />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+      .privacy-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 120px 24px 80px;
+      }
+
+      .privacy-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .privacy-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1a202c;
+        margin-bottom: 20px;
+        letter-spacing: -0.02em;
+      }
+
+      .privacy-subtitle {
+        font-size: 1.125rem;
+        color: #4a5568;
+        line-height: 1.6;
+      }
+
+      .privacy-content {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+      }
+
+      .privacy-section {
+        margin-bottom: 40px;
+      }
+
+      .privacy-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+
+      .section-content {
+        color: #4a5568;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      .section-content p {
+        margin-bottom: 16px;
+      }
+
+      .section-content ul {
+        margin: 16px 0;
+        padding-left: 24px;
+      }
+
+      .section-content li {
+        margin-bottom: 8px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #3182ce;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 40px;
+        padding: 12px 24px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+      }
+
+      .back-link:hover {
+        border-color: #3182ce;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(49, 130, 206, 0.2);
+      }
+
+      .highlight-box {
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .highlight-box h4 {
+        color: #3182ce;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .highlight-box p {
+        margin: 0;
+        color: #4a5568;
+      }
+
+      .contact-box {
+        background: #e8f4fd;
+        border: 1px solid #bee3f8;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .contact-box h4 {
+        color: #2b6cb0;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .contact-box a {
+        color: #3182ce;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .contact-box a:hover {
+        text-decoration: underline;
+      }
+
+      .footer-box {
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: center;
+      }
+
+      .footer-box p {
+        margin: 8px 0;
+        color: #4a5568;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .privacy-container {
+          padding: 100px 16px 60px;
+        }
+
+        .privacy-title {
+          font-size: 2rem;
+        }
+
+        .privacy-content {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="{% url 'portfolio:home' %}">DK</a>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="{% url 'portfolio:home' %}#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'portfolio:home' %}#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'portfolio:home' %}#experience" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'portfolio:home' %}#projects" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url 'portfolio:home' %}#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Privacy Policy Content -->
+    <div class="privacy-container">
+      <div class="privacy-header">
+        <h1 class="privacy-title">Privacy Policy</h1>
+        <p class="privacy-subtitle">Cover Letter Writer Chrome Extension</p>
+      </div>
+
+      <div class="privacy-content">
+        <div class="privacy-section">
+          <h2 class="section-title">Effective Date</h2>
+          <div class="section-content">
+            <p><strong>August 14, 2024</strong></p>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">1. Introduction</h2>
+          <div class="section-content">
+            <div class="highlight-box">
+              <h4>🔒 Your Privacy Matters</h4>
+              <p>Cover Letter Writer ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our Chrome extension.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">2. Information We Collect</h2>
+          <div class="section-content">
+            <h4>CV/Resume Data</h4>
+            <ul>
+              <li>We temporarily process your CV/resume files (PDF, DOC, DOCX, TXT) to generate cover letters</li>
+              <li>This data is processed through our secure Railway-hosted API</li>
+              <li><strong>We do not permanently store your CV content</strong></li>
+            </ul>
+
+            <h4>Job Description Data</h4>
+            <ul>
+              <li>We extract job descriptions from web pages you visit</li>
+              <li>This data is used solely for cover letter generation</li>
+              <li><strong>We do not store job descriptions permanently</strong></li>
+            </ul>
+
+            <h4>Usage Information</h4>
+            <ul>
+              <li>Basic extension usage statistics (features used, error reports)</li>
+              <li>No personally identifiable information is collected</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">3. How We Use Your Information</h2>
+          <div class="section-content">
+            <h4>Cover Letter Generation</h4>
+            <ul>
+              <li>Your CV data is processed by OpenAI's API to generate personalized cover letters</li>
+              <li>Job descriptions are analyzed to match your experience with job requirements</li>
+              <li>All processing is done securely through our Railway infrastructure</li>
+            </ul>
+
+            <h4>Service Improvement</h4>
+            <ul>
+              <li>Usage analytics help us improve the extension's functionality</li>
+              <li>Error reports help us fix bugs and improve performance</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">4. Data Security</h2>
+          <div class="section-content">
+            <h4>Encryption</h4>
+            <ul>
+              <li>All data transmission uses HTTPS encryption</li>
+              <li>API calls are secured with industry-standard protocols</li>
+            </ul>
+
+            <h4>Storage</h4>
+            <ul>
+              <li>CV data is processed in memory and not permanently stored</li>
+              <li>No personal information is retained on our servers</li>
+              <li>Temporary processing data is automatically cleared</li>
+            </ul>
+
+            <h4>Third-Party Services</h4>
+            <ul>
+              <li>We use OpenAI's API for AI-powered content generation</li>
+              <li>OpenAI's privacy policy applies to data processed by their services</li>
+              <li>Railway hosts our API infrastructure securely</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">5. Data Retention</h2>
+          <div class="section-content">
+            <ul>
+              <li><strong>CV/Resume Data</strong>: Not stored permanently</li>
+              <li><strong>Job Descriptions</strong>: Not stored permanently</li>
+              <li><strong>Usage Analytics</strong>: Retained for service improvement (anonymized)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">6. Your Rights</h2>
+          <div class="section-content">
+            <h4>Access and Control</h4>
+            <ul>
+              <li>You can uninstall the extension at any time</li>
+              <li>You control what CV data you upload</li>
+              <li>You can choose which job sites to use the extension on</li>
+            </ul>
+
+            <h4>Data Deletion</h4>
+            <ul>
+              <li>Since we don't permanently store your data, no deletion is needed</li>
+              <li>Uninstalling the extension removes all local data</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">7. Children's Privacy</h2>
+          <div class="section-content">
+            <p>This extension is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">8. Changes to This Policy</h2>
+          <div class="section-content">
+            <p>We may update this Privacy Policy from time to time. We will notify users of any material changes through the extension or our website.</p>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">9. Contact Information</h2>
+          <div class="section-content">
+            <p>If you have questions about this Privacy Policy, please contact us at:</p>
+            <div class="contact-box">
+              <h4>📧 Get In Touch</h4>
+              <ul>
+                <li><strong>Email</strong>: dipak.itsme@gmail.com</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/DipakKandel/Cover-Letter-Generator" target="_blank">Cover Letter Generator Repository</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="privacy-section">
+          <h2 class="section-title">10. Compliance</h2>
+          <div class="section-content">
+            <p>This extension complies with:</p>
+            <ul>
+              <li>Chrome Web Store policies</li>
+              <li>General Data Protection Regulation (GDPR) principles</li>
+              <li>California Consumer Privacy Act (CCPA) requirements</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-box">
+          <p><strong>Last Updated</strong>: August 14, 2024</p>
+          <p><strong>Version</strong>: 1.0</p>
+        </div>
+
+        <a href="{% url 'portfolio:home' %}" class="back-link">
+          <i class="fas fa-arrow-left"></i>
+          Back to Portfolio
+        </a>
+      </div>
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

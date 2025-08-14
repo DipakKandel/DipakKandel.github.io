@@ -1,0 +1,357 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if site_settings %}{{ site_settings.site_title }}{% else %}Dipak Kandel - Portfolio{% endif %}</title>
+    <meta name="description" content="{% if site_settings %}{{ site_settings.site_description }}{% else %}Software Engineer & IT Professional Portfolio{% endif %}" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#home">DK</a>
+        </div>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">{% if site_settings %}{{ site_settings.hero_title }}{% else %}Hi, I'm <span class="highlight">Dipak Kandel</span>{% endif %}</h1>
+          <p class="hero-subtitle">{% if site_settings %}{{ site_settings.hero_subtitle }}{% else %}Software Engineer & IT Professional{% endif %}</p>
+          <p class="hero-description">{% if site_settings %}{{ site_settings.hero_description }}{% else %} With over a year of hands-on development experience in JavaScript, MongoDB, Express, and Node.js, I'm currently pursuing a Master's degree in Information Technology while expanding my Python expertise. Passionate about people-centric support and technology solutions. {% endif %}</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn btn-secondary">View My Work</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          {% if personal_info and personal_info.profile_image %}
+          <img src="{{ personal_info.profile_image.url }}" alt="{{ personal_info.name }}" class="profile-img" />
+          {% else %}
+          <img src="{% static 'images/default-profile.jpg' %}" alt="Dipak Kandel" class="profile-img" />
+          {% endif %}
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <a href="#about">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">{% if site_settings %}{{ site_settings.about_title }}{% else %}About Me{% endif %}</h2>
+        <div class="about-content">
+          <div class="about-text">
+            {% if personal_info %} {{ personal_info.description|linebreaks }} {% else %}
+            <p>I am Dipak Kandel, a passionate software engineer currently based in Sydney, Australia. With a strong foundation in web development and a growing expertise in Python, I specialize in building scalable applications using modern technologies like Node.js, Express, MongoDB, and Django.</p>
+            <p>My journey in technology began with winning the National Microsoft Office Specialist Excel Championship in 2017, representing Nepal internationally in California, USA. This achievement sparked my passion for technology and problem-solving, leading me to pursue a career in software development.</p>
+            <p>Currently pursuing my Master's degree in Information Technology at King's Own Institute, I'm actively seeking opportunities to apply my skills in real-world projects while continuing to learn and grow in the ever-evolving tech landscape.</p>
+            {% endif %}
+          </div>
+          <div class="about-stats">
+            {% if experiences %}
+            <div class="stat-item">
+              <h3>{{ experiences|length }}+</h3>
+              <p>Years Experience</p>
+            </div>
+            {% endif %} {% if projects %}
+            <div class="stat-item">
+              <h3>{{ projects|length }}+</h3>
+              <p>Projects Completed</p>
+            </div>
+            {% endif %} {% if achievements %}
+            <div class="stat-item">
+              <h3>{{ achievements|length }}+</h3>
+              <p>Achievements</p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <h2 class="section-title">Experience & Skills</h2>
+        <div class="experience-grid">
+          {% if skills %} {% for category, skill_list in skills.items %} {% if skill_list %}
+          <div class="experience-card">
+            <div class="card-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>{{ category }}</h3>
+            <p>{% for skill in skill_list|slice:":3" %} {{ skill.name }}{% if not forloop.last %}, {% endif %} {% endfor %} {% if skill_list|length > 3 %} and more...{% endif %}</p>
+          </div>
+          {% endif %} {% endfor %} {% endif %} {% if experiences %}
+          <div class="experience-card">
+            <div class="card-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h3>Professional Experience</h3>
+            <p>{{ experiences|length }} positions with expertise in web development and software engineering</p>
+          </div>
+          {% endif %} {% if education %}
+          <div class="experience-card">
+            <div class="card-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Education</h3>
+            <p>Master's in Information Technology at King's Own Institute, Sydney</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">{% if site_settings %}{{ site_settings.projects_title }}{% else %}Featured Projects{% endif %}</h2>
+        <div class="projects-grid">
+          {% if projects %} {% for project in projects %}
+          <div class="project-card">
+            <div class="project-image">
+              {% if project.image %}
+              <img src="{{ project.image.url }}" alt="{{ project.title }}" />
+              {% else %}
+              <img src="{% static 'images/default-project.jpg' %}" alt="{{ project.title }}" />
+              {% endif %}
+            </div>
+            <div class="project-content">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.short_description }}</p>
+              <div class="project-tags">
+                {% for tech in project.technologies.all|slice:":3" %}
+                <span class="tag">{{ tech.name }}</span>
+                {% endfor %}
+              </div>
+              {% if project.github_url %}
+              <div class="project-links">
+                <a href="{{ project.github_url }}" target="_blank" class="project-link"> <i class="fab fa-github"></i> View Project </a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %} {% else %}
+          <!-- Fallback projects -->
+          <div class="project-card">
+            <div class="project-image">
+              <img src="{% static 'images/python.jpg' %}" alt="Thesis Management System" />
+            </div>
+            <div class="project-content">
+              <h3>Thesis Management System</h3>
+              <p>A comprehensive web application built with Python and Django to manage the end-to-end thesis process.</p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Django</span>
+                <span class="tag">SQLite</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">{% if site_settings %}{{ site_settings.contact_title }}{% else %}Get In Touch{% endif %}</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>{% if site_settings %}{{ site_settings.contact_description }}{% else %} I'm actively seeking opportunities in software development and technology. Feel free to reach out for collaborations, job opportunities, or just to connect! {% endif %}</p>
+            <div class="contact-methods">
+              {% if personal_info %}
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <span>{{ personal_info.email }}</span>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <span>{{ personal_info.phone }}</span>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ personal_info.location }}</span>
+              </div>
+              {% if personal_info.github_url %}
+              <div class="contact-method">
+                <i class="fab fa-github"></i>
+                <span>{{ personal_info.github_url }}</span>
+              </div>
+              {% endif %} {% else %}
+              <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <span>dipak.itsme@gmail.com</span>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <span>+61 426 666 207</span>
+              </div>
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sydney, Australia</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="contact-form">
+            <form id="contactForm">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" name="subject" placeholder="Subject" required />
+              </div>
+              <div class="form-group">
+                <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>{% if personal_info %}{{ personal_info.name }}{% else %}Dipak Kandel{% endif %}</h3>
+            <p>{% if personal_info %}{{ personal_info.title }}{% else %}Software Engineer & IT Professional{% endif %}</p>
+            <p>Currently pursuing Master's in Information Technology</p>
+          </div>
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="social-links">
+              {% if personal_info and personal_info.github_url %}
+              <a href="{{ personal_info.github_url }}" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              {% endif %} {% if personal_info %}
+              <a href="mailto:{{ personal_info.email }}" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+              {% endif %} {% if personal_info %}
+              <a href="tel:{{ personal_info.phone }}" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 {% if personal_info %}{{ personal_info.name }}{% else %}Dipak Kandel{% endif %}. All rights reserved. {% if site_settings %}{{ site_settings.footer_text }}{% else %}Made with ❤️ in Sydney, Australia{% endif %}</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+      // Update contact form to use Django endpoint
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+
+            // Show loading state
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+            submitButton.style.opacity = "0.7";
+
+            // Prepare data for Django
+            const data = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              subject: formData.get("subject"),
+              message: formData.get("message"),
+            };
+
+            // Send to Django backend
+            fetch('{% url "portfolio:contact_submit" %}', {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  alert(data.message);
+                  this.reset();
+                } else {
+                  alert("Error: " + data.message);
+                }
+              })
+              .catch((error) => {
+                alert("An error occurred. Please try again.");
+                console.error("Error:", error);
+              })
+              .finally(() => {
+                // Reset button
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                submitButton.style.opacity = "1";
+              });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
